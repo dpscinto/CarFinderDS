@@ -54,12 +54,12 @@ namespace CarFinderDS.Controllers
 
             return Ok(retval);
             }
-            public IHttpActionResult GetCars(string model_year, string make, string model_name, string model_trim)
+            public IHttpActionResult GetCars(string model_year="", string make="", string model_name="", string model_trim="")
             {
-                var Smodel_year = new SqlParameter("@model_year", model_year);
-                var Smake = new SqlParameter("@make", make);
-                var Smodel_name = new SqlParameter("@model_name", model_name);
-                var Smodel_trim = new SqlParameter("@model_trim", model_trim);
+                var Smodel_year = new SqlParameter("@model_year", model_year??"");
+                var Smake = new SqlParameter("@make", make??"");
+                var Smodel_name = new SqlParameter("@model_name", model_name??"");
+                var Smodel_trim = new SqlParameter("@model_trim", model_trim??"");
                 var retval = db.Database.SqlQuery<Car>(
                 "EXEC GetCars @model_year, @make, @model_name, @model_trim", Smodel_year, Smake, Smodel_name, Smodel_trim
                 ).ToList();
