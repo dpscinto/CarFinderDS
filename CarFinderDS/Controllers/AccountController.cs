@@ -16,9 +16,11 @@ using Microsoft.Owin.Security.OAuth;
 using CarFinderDS.Models;
 using CarFinderDS.Providers;
 using CarFinderDS.Results;
+using System.Web.Http.Description;
 
 namespace CarFinderDS.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController

@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="App/app.js"></script>
+    <script src="App/myCtrl.js"></script>
+</head>
+<body ng-app='myApp'>
+    <div ng-controller="myCtrl as mc" ng-cloak>
+        
+        <table>
+            <tr>
+                <th><h1>To Do List</h1></th>
+                <th><h1>-</h1></th>
+                <th><h1>{{mc.date | date:'shortDate'}}</h1></th>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th><h3>No.</h3></th>
+                <th><h3>Task</h3></th>                    
+                <th><h3>Priority</h3></th>
+                <th><h3>Done</h3></th>
+                <th><h3>Remove</h3></th>
+                <th><h3>Time of Completion</h3></th>
+            </tr>
+            <tr ng-repeat="stuff in mc.todos">
+                <td>
+                    <!--Task Number-->
+                    {{ $index + 1 }}
+                </td>
+
+                <td>
+                    <!--Task-->
+                    <div><h3>{{stuff}}</h3></div>
+                </td>
+
+                <td>
+                    <!--Priority-->
+                    <div>
+                        <select ng-model="mc.priority" ng-options="a for a in mc.priorities">{{a}}</select>
+                    </div>
+                </td>
+
+                <td>
+                    <!--Done-->
+                    <input type="checkbox" ng-model="mc.done" ng-change="mc.newDate()" />
+                </td>
+
+                <td>
+                    <!--Remove-->
+                    <input type="button" value="x" class="btn btn-primary" ng-click="remove(stuff.task)" />
+                </td>
+
+                <td>
+                    <!--Timestamp-->
+                    <div>{{mc.date1 | date:'medium'}}</div>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <form ng-submit="mc.addTask()">
+            <input type="text" ng-model="mc.task" size="30"
+                   placeholder="Add new task here:" />
+            <input class="btn-primary" type="submit" value="Add Task" />
+        </form>
+
+    </div>
+</body>
+</html>
