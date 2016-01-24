@@ -141,11 +141,15 @@
                                 </div>
                                 <div class="modal-body">
                                     <img ng-src={{cm.car.image}} class="img-responsive"/>
-                                    <uib-accordion close-others="oneAtATime">
-                                        <uib-accordion-group heading="{{result.title}}" ng-repeat=ng-repeat="result in cm.car.recalls.Results">
-                                            {{result.Summary}}
-                                        </uib-accordion-group>
-                                    </uib-accordion>                                        
+                                    <uib-accordion>
+                                            <uib-accordion-group heading="{{result.Component}}" ng-repeat="result in cm.car.recalls.Results">
+                                                <div><strong>Summary:</strong>
+                                                    <p>{{result.Summary}}</p></div>
+                                                <div><strong>Consequence:</strong> 
+                                                    <p>{{result.Conequence}}</p></div>
+                                                <div><strong>Remedy:</strong> 
+                                                    <p>{{result.Remedy}}</p></div>
+                                            </uib-accordion-group>
                                 </div>
                             </script>
                         </div>
