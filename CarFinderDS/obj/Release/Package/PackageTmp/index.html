@@ -141,30 +141,32 @@
                             </div>
                             <div class="modal-body">
                                 <div class="row">
-                                    <div class="col-md-3">
-                                        <h4>Car Details</h4>
-                                        <dl>
-                                            <dt ng-if=cm.car.car.transmission_type><strong>Transmission</strong></dt>
-                                            <dd>{{cm.car.car.transmission_type}}</dd>
-                                            <dt ng-if=cm.car.car.drive_type><strong>Drive Type</strong></dt>
-                                            <dd>{{cm.car.car.drive_type}}</dd>
-                                            <dt ng-if=cm.car.car.body_style><strong>Body Style</strong></dt>
-                                            <dd>{{cm.car.car.body_style}}</dd>
-                                            <dt ng-if=cm.car.car.seats><strong>Seats</strong></dt>
-                                            <dd>{{cm.car.car.seats}}</dd>
-                                            <dt ng-if=cm.car.car.doors><strong>Doors</strong></dt>
-                                            <dd>{{cm.car.car.doors}}</dd>
-                                            <dt ng-if=cm.car.car.top_speed_kph><strong>Top Speed (kph)</strong></dt>
-                                            <dd>{{cm.car.car.top_speed_kph}}</dd>
-                                            <dt ng-if=cm.car.car.zero_to_100_kph><strong>0-60mph (sec)</strong></dt>
-                                            <dd>{{cm.car.car.zero_to_100_kph}}</dd>
-                                        </dl>
+                                    <div class="col-md-12">
+                                    <h4>Car Specs</h4></div>
+                                    <br />
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <dl>
+                                                <dt ng-if=cm.car.car.transmission_type><strong>Transmission</strong></dt>
+                                                <dd>{{cm.car.car.transmission_type}}</dd>
+                                                <dt ng-if=cm.car.car.drive_type><strong>Drive Type</strong></dt>
+                                                <dd>{{cm.car.car.drive_type}}</dd>
+                                                <dt ng-if=cm.car.car.body_style><strong>Body Style</strong></dt>
+                                                <dd>{{cm.car.car.body_style}}</dd>
+                                                <dt ng-if=cm.car.car.seats><strong>Seats</strong></dt>
+                                                <dd>{{cm.car.car.seats}}</dd>
+                                                <dt ng-if=cm.car.car.doors><strong>Doors</strong></dt>
+                                                <dd>{{cm.car.car.doors}}</dd>
+                                                <dt ng-if=cm.car.car.top_speed_kph><strong>Top Speed (kph)</strong></dt>
+                                                <dd>{{cm.car.car.top_speed_kph}}</dd>
+                                                <dt ng-if=cm.car.car.zero_to_100_kph><strong>0-60mph (sec)</strong></dt>
+                                                <dd>{{cm.car.car.zero_to_100_kph}}</dd>
+                                            </dl>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <img ng-src={{cm.car.image}} class="img-responsive" />
+                                            <br />
+                                        </div>
                                     </div>
-                                    <div class="col-md-9">
-                                        <img ng-src={{cm.car.image}} class="img-responsive" />
-                                        <br />
-                                    </div>
-                                </div>
                                 <uib-accordion>
                                     <uib-accordion-group heading="{{result.Component}}" ng-repeat="result in cm.car.recalls.Results">
                                         <div>

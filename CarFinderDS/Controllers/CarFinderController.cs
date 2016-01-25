@@ -157,7 +157,7 @@ namespace CarFinderDS.Controllers
                 null,
                 null,
                 null,
-                null,
+                "Size:Large+Style:Photo",
                 null,
                 null,
                 null,
@@ -165,7 +165,27 @@ namespace CarFinderDS.Controllers
                 null
                 ).Execute();
 
-            Image = marketData.First().Image.First().MediaUrl;
+
+            var Images = marketData.FirstOrDefault()?.Image;
+            foreach (var Img in Images)
+            {
+
+                if (UrlCtrl.IsUrl(Img.MediaUrl))
+                {
+                    Image = Img.MediaUrl;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+
+            }
+            if(string.IsNullOrWhiteSpace(Image))
+            {
+                Image = "grayscale/img/parking.jpg";
+            }
+
             return Ok(new
             {
                 car = Car,
@@ -173,7 +193,39 @@ namespace CarFinderDS.Controllers
                 image = Image
             });
         }
+
+        public static class UrlCtrl
+        {
+            public static bool IsUrl(string path)
+            {
+                HttpWebResponse response = null;
+                var request = (HttpWebRequest)WebRequest.Create(path);
+                request.Method = "HEAD";
+                bool result = true;
+
+                try
+                {
+                    response = (HttpWebResponse)request.GetResponse();
+                }
+                catch (WebException ex)
+                {
+                    /* A WebException will be thrown if the status of the response is not `200 OK` */
+                    result = false;
+                }
+                finally
+                {
+                    // Don't forget to close your response.
+                    if (response != null)
+                    {
+                        response.Close();
+                    }
+
+                }
+
+                return result;
+            }
+        }
     }
-}
+    }
 
 

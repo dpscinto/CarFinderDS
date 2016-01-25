@@ -321,6 +321,7 @@
     <Content Include="grayscale\img\favicon-automobile.ico" />
     <Content Include="grayscale\img\html.png" />
     <Content Include="grayscale\img\map-marker.png" />
+    <Content Include="grayscale\img\parking.jpg" />
     <Content Include="grayscale\img\road-car-tire.jpg" />
     <Content Include="grayscale\img\sql.png" />
     <Content Include="grayscale\jquery.easing.min.js" />
