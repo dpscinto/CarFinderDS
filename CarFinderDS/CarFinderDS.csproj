@@ -34,7 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>App_Data/XmlDocument.xml</DocumentationFile>
+    <DocumentationFile>App_Data\XmlDocument.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -311,11 +311,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="grayscale\font-awesome\css\font-awesome.css" />
+    <Content Include="grayscale\font-awesome\css\font-awesome.min.css" />
+    <Content Include="grayscale\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="grayscale\grayscale.css" />
     <Content Include="grayscale\grayscale.js" />
     <Content Include="grayscale\img\angularjs.png" />
+    <Content Include="grayscale\img\carcover3.jpg" />
     <Content Include="grayscale\img\favicon-automobile.ico" />
     <Content Include="grayscale\img\html.png" />
+    <Content Include="grayscale\img\map-marker.png" />
     <Content Include="grayscale\img\road-car-tire.jpg" />
     <Content Include="grayscale\img\sql.png" />
     <Content Include="grayscale\jquery.easing.min.js" />
@@ -1142,6 +1147,39 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="grayscale\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="grayscale\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="grayscale\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="grayscale\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="grayscale\font-awesome\less\bordered-pulled.less" />
+    <Content Include="grayscale\font-awesome\less\core.less" />
+    <Content Include="grayscale\font-awesome\less\fixed-width.less" />
+    <Content Include="grayscale\font-awesome\less\font-awesome.less" />
+    <Content Include="grayscale\font-awesome\less\icons.less" />
+    <Content Include="grayscale\font-awesome\less\larger.less" />
+    <Content Include="grayscale\font-awesome\less\list.less" />
+    <Content Include="grayscale\font-awesome\less\mixins.less" />
+    <Content Include="grayscale\font-awesome\less\path.less" />
+    <Content Include="grayscale\font-awesome\less\rotated-flipped.less" />
+    <Content Include="grayscale\font-awesome\less\spinning.less" />
+    <Content Include="grayscale\font-awesome\less\stacked.less" />
+    <Content Include="grayscale\font-awesome\less\variables.less" />
+    <Content Include="grayscale\font-awesome\scss\font-awesome.scss" />
+    <Content Include="grayscale\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="grayscale\font-awesome\scss\_core.scss" />
+    <Content Include="grayscale\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="grayscale\font-awesome\scss\_icons.scss" />
+    <Content Include="grayscale\font-awesome\scss\_larger.scss" />
+    <Content Include="grayscale\font-awesome\scss\_list.scss" />
+    <Content Include="grayscale\font-awesome\scss\_mixins.scss" />
+    <Content Include="grayscale\font-awesome\scss\_path.scss" />
+    <Content Include="grayscale\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="grayscale\font-awesome\scss\_spinning.scss" />
+    <Content Include="grayscale\font-awesome\scss\_stacked.scss" />
+    <Content Include="grayscale\font-awesome\scss\_variables.scss" />
+    <Content Include="grayscale\less\grayscale.less" />
+    <Content Include="grayscale\less\mixins.less" />
+    <Content Include="grayscale\less\variables.less" />
     <None Include="Properties\PublishProfiles\dscinto-carfinder.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
@@ -1174,11 +1212,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\version.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="grayscale\font-awesome\" />
-    <Folder Include="grayscale\fonts\" />
-    <Folder Include="grayscale\less\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

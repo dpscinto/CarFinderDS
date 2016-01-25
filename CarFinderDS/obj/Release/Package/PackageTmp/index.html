@@ -93,67 +93,97 @@
 
     <!-- Car Section -->
     <section id="about" class="container content-section text-center">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Find Your Next Car</h2>
-                    <body ng-app='carDetails'>
-                        <div ng-controller="carCtrl as car" ng-cloak>
-                            <label>
-                                Start Here:
-                                <select ng-options="mak for mak in car.makes" ng-model="car.selected.make" ng-change="car.getModels()">
-                                    {{mak}}
-                                </select>
-                                <select ng-options="mod for mod in car.models" ng-model="car.selected.model" ng-change="car.getTrims()">
-                                    {{mod}}
-                                </select>
-                                <select ng-options="t for t in car.trims" ng-model="car.selected.trim" ng-change="car.getYears()">
-                                    {{t}}
-                                </select>
-                                <select ng-options="y for y in car.years" ng-model="car.selected.year" ng-change="car.getCarsAlt()">
-                                    {{y}}
-                                </select>
-                            </label>
-                            <br />
-                            <br />
-                            <table tr-ng-grid="" items="car.cars" page-items="25">
-                                <thead>
-                                    <tr>
-                                        <th field-name="make" display-name="Make"></th>
-                                        <th field-name="model_name" display-name="Model"></th>
-                                        <th field-name="model_trim" display-name="Trim"></th>
-                                        <th field-name="model_year" display-name="Year"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <button ng-click="car.open(gridItem.id)">Details</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <script type="text/ng-template" id="carModal.html">
-                                <div class="modal-header">
-                                    <h3 class="modal-title">
-                                        {{cm.car.car.model_year}}{{'  '}}{{cm.car.car.make}}{{'  '}}{{cm.car.car.model_name}}{{'  '}}{{cm.car.car.model_trim}}
-                                        <button class="pull-right btn btn-default" ng-click="cm.cancel()">X</button>
-                                    </h3>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Find Your Next Car</h2>
+                <body ng-app='carDetails'>
+                    <div ng-controller="carCtrl as car" ng-cloak>
+                        <label>
+                            Start Here:
+                            <select ng-options="mak for mak in car.makes" ng-model="car.selected.make" ng-change="car.getModels()">
+                                {{mak}}
+                            </select>
+                            <select ng-options="mod for mod in car.models" ng-model="car.selected.model" ng-change="car.getTrims()">
+                                {{mod}}
+                            </select>
+                            <select ng-options="t for t in car.trims" ng-model="car.selected.trim" ng-change="car.getYears()">
+                                {{t}}
+                            </select>
+                            <select ng-options="y for y in car.years" ng-model="car.selected.year" ng-change="car.getCarsAlt()">
+                                {{y}}
+                            </select>
+                        </label>
+                        <br />
+                        <br />
+                        <table tr-ng-grid="" items="car.cars" page-items="25">
+                            <thead>
+                                <tr>
+                                    <th field-name="make" display-name="Make"></th>
+                                    <th field-name="model_name" display-name="Model"></th>
+                                    <th field-name="model_trim" display-name="Trim"></th>
+                                    <th field-name="model_year" display-name="Year"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <button ng-click="car.open(gridItem.id)">Details</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <script type="text/ng-template" id="carModal.html">
+                            <div class="modal-header">
+                                <h3 class="modal-title">
+                                    {{cm.car.car.model_year}}{{'  '}}{{cm.car.car.make}}{{'  '}}{{cm.car.car.model_name}}{{'  '}}{{cm.car.car.model_trim}}
+                                    <button class="pull-right btn btn-default" ng-click="cm.cancel()">X</button>
+                                </h3>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h4>Car Details</h4>
+                                        <dl>
+                                            <dt ng-if=cm.car.car.transmission_type><strong>Transmission</strong></dt>
+                                            <dd>{{cm.car.car.transmission_type}}</dd>
+                                            <dt ng-if=cm.car.car.drive_type><strong>Drive Type</strong></dt>
+                                            <dd>{{cm.car.car.drive_type}}</dd>
+                                            <dt ng-if=cm.car.car.body_style><strong>Body Style</strong></dt>
+                                            <dd>{{cm.car.car.body_style}}</dd>
+                                            <dt ng-if=cm.car.car.seats><strong>Seats</strong></dt>
+                                            <dd>{{cm.car.car.seats}}</dd>
+                                            <dt ng-if=cm.car.car.doors><strong>Doors</strong></dt>
+                                            <dd>{{cm.car.car.doors}}</dd>
+                                            <dt ng-if=cm.car.car.top_speed_kph><strong>Top Speed (kph)</strong></dt>
+                                            <dd>{{cm.car.car.top_speed_kph}}</dd>
+                                            <dt ng-if=cm.car.car.zero_to_100_kph><strong>0-60mph (sec)</strong></dt>
+                                            <dd>{{cm.car.car.zero_to_100_kph}}</dd>
+                                        </dl>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <img ng-src={{cm.car.image}} class="img-responsive" />
+                                        <br />
+                                    </div>
                                 </div>
-                                <div class="modal-body">
-                                    <img ng-src={{cm.car.image}} class="img-responsive"/>
-                                    <br />
-                                    <uib-accordion>
-                                            <uib-accordion-group heading="{{result.Component}}" ng-repeat="result in cm.car.recalls.Results">
-                                                <div><strong>Summary:</strong>
-                                                    <p>{{result.Summary}}</p></div>
-                                                <div><strong>Consequence:</strong> 
-                                                    <p>{{result.Conequence}}</p></div>
-                                                <div><strong>Remedy:</strong> 
-                                                    <p>{{result.Remedy}}</p></div>
-                                            </uib-accordion-group>
-                                </div>
-                            </script>
-                        </div>
+                                <uib-accordion>
+                                    <uib-accordion-group heading="{{result.Component}}" ng-repeat="result in cm.car.recalls.Results">
+                                        <div>
+                                            <strong>Summary:</strong>
+                                            <p>{{result.Summary}}</p>
+                                        </div>
+                                        <div>
+                                            <strong>Consequence:</strong>
+                                            <p>{{result.Conequence}}</p>
+                                        </div>
+                                        <div>
+                                            <strong>Remedy:</strong>
+                                            <p>{{result.Remedy}}</p>
+                                        </div>
+                                    </uib-accordion-group>
+                                </uib-accordion>
+                            </div>
+                        </script>
+                    </div>
                 </body>
             </div>
         </div>
@@ -165,8 +195,25 @@
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>About Car Finder</h2>
-                    <p><strong>Technologies Used:</strong> HTML5, CSS3, JavaScript, SQL, SQL Server, AngularJS, Bootstrap, WebAPIs</p>
-                    <p>You can check on my code on GitHub.</p>
+                </div>
+                <div class="col-md-4">
+                    <img width="200" height="200" src="grayscale/img/html.png" />
+                    <br />
+                    <p>I used HTML5, CSS3, and JavaScript to structure and style the front-end of the Car Finder App with help from a Bootstrap template.</p>
+                </div>
+                <div class="col-md-4">
+                    <img width="200" height="200" src="grayscale/img/sql.png">
+                    <br />
+                    <p>Through the use of SQL Server stored procedures, I created a consumable WebAPI that accesses NHTSA's database to display car details, images, and recalls.</p>
+                </div>
+                <div class="col-md-4">
+                    <img width="180" height="200" src="grayscale/img/angularjs.png">
+                    <br />
+                    <p>The implementation of AngularJS creates a fully-responsive site, which displays information from the database in a eye-catching way.</p>
+                </div>
+
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p>You can check out my code on GitHub.</p>
                     <a href="https://github.com/dpscinto/CarFinderDS" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">GitHub</span></a>
                 </div>
             </div>
@@ -179,7 +226,8 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Contact Dan Scinto</h2>
                 <p>Feel free to email me to provide some feedback, suggestions, employment, or to just say hello!</p>
-                <p><a href="mailto:dpscinto@gmail.com">dpscinto@gmail.com</a>
+                <p>
+                    <a href="mailto:dpscinto@gmail.com">dpscinto@gmail.com</a>
                 </p>
                 <ul class="list-inline banner-social-buttons">
                     <li>
