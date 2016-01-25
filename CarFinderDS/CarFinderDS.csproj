@@ -300,6 +300,7 @@
     <Content Include="App\carService.js" />
     <Content Include="App\fakeSvc.js" />
     <Content Include="App\myCtrl.js" />
+    <Content Include="App_Data\XmlDocument.xml" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -312,7 +313,11 @@
     <Content Include="Global.asax" />
     <Content Include="grayscale\grayscale.css" />
     <Content Include="grayscale\grayscale.js" />
+    <Content Include="grayscale\img\angularjs.png" />
     <Content Include="grayscale\img\favicon-automobile.ico" />
+    <Content Include="grayscale\img\html.png" />
+    <Content Include="grayscale\img\road-car-tire.jpg" />
+    <Content Include="grayscale\img\sql.png" />
     <Content Include="grayscale\jquery.easing.min.js" />
     <Content Include="grayscale\jquery.js" />
     <Content Include="index.html" />
@@ -1137,6 +1142,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\dscinto-carfinder.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -1169,7 +1175,6 @@
     <Content Include="Scripts\version.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="grayscale\font-awesome\" />
     <Folder Include="grayscale\fonts\" />
     <Folder Include="grayscale\less\" />

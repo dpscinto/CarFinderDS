@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="App/app.js"></script>
+    <script src="App/carCtrl.js"></script>
+    <script src="App/carService.js"></script>
+</head>
+<body ng-app='carDetails'>
+    <div ng-controller="carCtrl as car" ng-cloak>
+
+        <select ng-options="mak for mak in car.makes" ng-model="car.selected.make" ng-change="car.getModels()">
+            {{mak}}
+        </select>
+        <select ng-options="mod for mod in car.models" ng-model="car.selected.model" ng-change="car.getTrims()">
+            {{mod}}
+        </select>
+        <select ng-options="t for t in car.trims" ng-model="car.selected.trim" ng-change="car.getYears()">
+            {{t}}
+        </select>
+        <select ng-options="y for y in car.years" ng-model="car.selected.year" ng-change="car.getCarsAlt()">
+            {{y}}
+        </select>
+        <br />
+        <br />        
+        <table tr-ng-grid="" items="car.cars" page-items="25">
+            <thead>
+                <tr>
+                    <th field-name="make" display-name="Make"</th>
+                    <th field-name="model_name" display-name="Model"</th>
+                    <th field-name="model_trim" display-name="Trim"</th>
+                    <th field-name="model_year" display-name="Year"</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="c in car.cars">
+                    <td>{{c.make}}</td>
+                    <td>{{c.model_name}}</td>
+                    <td>{{c.model_trim}}</td>
+                    <td>{{c.model_year}}</td>
+                    <button ng-click="car.open()">Info</button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
